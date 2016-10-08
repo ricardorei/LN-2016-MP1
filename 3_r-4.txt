@@ -1,0 +1,5 @@
+0 1 r 4
+0 1 [^r] =
+1 1 vogal =
+1 1 consoante =
+1
