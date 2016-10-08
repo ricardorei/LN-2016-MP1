@@ -1,10 +1,8 @@
 #!/bin/bash
 
-rm -f 
-
-for i in *.txt; do
-	python compact2fst.py $i > ugly-$i
-done
+python compact2fst.py 1_s-z.txt > ugly-1_s-z.txt
+python compact2fst.py 1_x-s.txt > ugly-1_x-s.txt
+python compact2fst.py 1_x-z.txt > ugly-1_x-z.txt
 
 # Passo 1 #
 fstcompile --isymbols=syms.txt --osymbols=syms.txt ugly-1_s-z.txt | fstarcsort > 1_s-z.fst
