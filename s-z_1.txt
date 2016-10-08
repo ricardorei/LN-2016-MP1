@@ -1,0 +1,13 @@
+0 0 consoante =
+0 1 vogal =
+1 1 vogal =
+1 2 s z
+1 3 s s
+2 4 vogal =
+3 4 [^aeiou] =
+4 1 vogal =
+4 0 consoante =
+0
+1
+3
+4
