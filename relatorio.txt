@@ -8,4 +8,3 @@ Descrição das opções:
 
 - Desenhamos um transdutor para cada regra pois isto permitia-nos utilizar a ferramenta de composição simplificando assim a realização de cada passo. 
 
-
