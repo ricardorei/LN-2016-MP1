@@ -1,0 +1,11 @@
+Grupo 2 TAGUSPARK
+Ricardo Rei - 78047
+Miguel Carvalho - 78054
+
+Descrição das opções:
+
+- Escolhemos não utilizar pesos pois, para os definir, teriamos de desenhar algum algoritmo que testasse as melhores combinações destes, o que traria alguma dificuldade acrescida.
+
+- Desenhamos um transdutor para cada regra pois isto permitia-nos utilizar a ferramenta de composição simplificando assim a realização de cada passo. 
+
+
