@@ -1,0 +1,5 @@
+0 1 [^aeiou] =
+0 1 vogal =
+1 1 vogal eps
+1 1 [^aeiou] =
+1
