@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in rato hoje quando paz celofane calar gelo xerox rei carvalho; do
+for i in rato hoje quando paz celofane calar gelo xerox rei carva2o; do
 	python word2fst.py $i > w-$i.txt
 	fstcompile --isymbols=syms.txt --osymbols=syms.txt w-$i.txt | fstarcsort > w-$i.fst
 done
@@ -24,27 +24,21 @@ fstcompile --isymbols=syms.txt --osymbols=syms.txt ugly-3_z-s.txt | fstarcsort >
 #CELOFANE substituicao de C por S = SELOFANE
 fstcompose w-celofane.fst 3_c-s.fst > selofane.fst
 fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait selofane.fst | dot -Tpdf > selofane.pdf
-
 #GELO substituicao de G por J = JELO
 fstcompose w-gelo.fst 3_g-j.fst > jelo.fst
 fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait jelo.fst | dot -Tpdf > jelo.pdf
-
 #HOJE substituicao de H por EPS
 fstcompose w-hoje.fst 3_h-0.fst > oje.fst
 fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait oje.fst | dot -Tpdf > oje.pdf
-
 #QUANDO substituicao de Q por K
 fstcompose w-quando.fst 3_q-k.fst > kuando.fst
 fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait kuando.fst | dot -Tpdf > kuando.pdf
-
 #RATO substituicao de R por 4
 fstcompose w-rato.fst 3_r-4.fst > 4ato.fst
 fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait 4ato.fst | dot -Tpdf > 4ato.pdf
-
 #XEROX substituicao de X (ultimo x) por KS
 fstcompose w-xerox.fst 3_x-ks.fst > xeroks.fst
 fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait xeroks.fst | dot -Tpdf > xeroks.pdf
-
 #PAZ substituicao de Z por s
 fstcompose w-paz.fst 3_z-s.fst > pas.fst
 fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait pas.fst | dot -Tpdf > pas.pdf
@@ -59,11 +53,8 @@ fstcompose 3_aux5.fst 3_z-s.fst > passo3.fst
 
 #Teste ao passo 3 completo para os apelidos REI e CARVALHO
 #NOTA: o LH de carvalho tendo em conta que o passo 3 corre dps do passo 2 deveria ser substituido por 2
-#		como este teste e independente o h simplesmente é apagado 
-fstcompose w-carvalho.fst passo3.fst > carvalho.fst
-fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait carvalho.fst | dot -Tpdf > carvalho.pdf
-
-fstcompose w-rei.fst passo3.fst > rei.fst
-fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait rei.fst | dot -Tpdf > rei.pdf
-
+for i in carva2o rei; do
+	fstcompose w-$i.fst passo3.fst > $i.fst
+	fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait $i.fst | dot -Tpdf > $i.pdf
+done 
 

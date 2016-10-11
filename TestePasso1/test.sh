@@ -17,21 +17,18 @@ fstcompile --isymbols=syms.txt --osymbols=syms.txt ugly-1_x-z.txt | fstarcsort >
 #ASA substituicao de S por Z = AZA
 fstcompose w-asa.fst 1_s-z.fst > aza.fst
 fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait aza.fst | dot -Tpdf > aza.pdf
-
 #EXAME substituicao de X por Z = EZAME
 fstcompose w-exame.fst 1_x-z.fst > ezame.fst
 fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait ezame.fst | dot -Tpdf > ezame.pdf
-
 #EXTRA substituicao de X por S = ESTRA
 fstcompose w-extra.fst 1_x-s.fst > estra.fst
 fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait estra.fst | dot -Tpdf > estra.pdf
 
-#Teste ao passo 1 completo
+#Teste ao passo 1 completo para os apelidos REI e CARVALHO
 fstcompose 1_s-z.fst 1_x-s.fst > 1_aux1.fst
 fstcompose 1_aux1.fst 1_x-z.fst > passo1.fst 
 
-fstcompose w-carvalho.fst passo1.fst > carvalho.fst
-fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait carvalho.fst | dot -Tpdf > carvalho.pdf
-
-fstcompose w-rei.fst passo1.fst > rei.fst
-fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait rei.fst | dot -Tpdf > rei.pdf
+for i in carvalho rei; do
+	fstcompose w-$i.fst passo1.fst > $i.fst
+	fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait $i.fst | dot -Tpdf > $i.pdf
+done 

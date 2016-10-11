@@ -1,5 +1,6 @@
 0 0 consoante =
 0 1 vogal =
+1 0 [^aeious] =
 1 1 vogal =
 1 2 s z
 1 3 s s
