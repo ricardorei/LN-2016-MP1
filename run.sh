@@ -70,7 +70,7 @@ fstcompose final2.fst passo4.fst > transdutorFinal.fst
 for i in rei carvalho dziergwa; do
 	python word2fst.py $i > w-$i.txt
 	fstcompile --isymbols=syms.txt --osymbols=syms.txt w-$i.txt | fstarcsort > w-$i.fst
-	fstcompose w-$i.fst transdutorFinal.fst > $i.fst
+	fstcompose w-$i.fst transdutorFinal.fst | fstproject --project_output | fstrmepsilon > $i.fst
 	fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait $i.fst | dot -Tpdf > $i.pdf
 done
 
