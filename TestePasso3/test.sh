@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in rato hoje quando paz celofane calar gelo xerox; do
+for i in rato hoje quando paz celofane calar gelo xerox rei carvalho; do
 	python word2fst.py $i > w-$i.txt
 	fstcompile --isymbols=syms.txt --osymbols=syms.txt w-$i.txt | fstarcsort > w-$i.fst
 done
@@ -48,3 +48,22 @@ fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait xeroks.fst | dot -Tpdf
 #PAZ substituicao de Z por s
 fstcompose w-paz.fst 3_z-s.fst > pas.fst
 fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait pas.fst | dot -Tpdf > pas.pdf
+
+#compose do passo 3 todo
+fstcompose 3_c-s.fst 3_g-j.fst > 3_aux1.fst
+fstcompose 3_aux1.fst 3_h-0.fst > 3_aux2.fst
+fstcompose 3_aux2.fst 3_q-k.fst > 3_aux3.fst
+fstcompose 3_aux3.fst 3_r-4.fst > 3_aux4.fst
+fstcompose 3_aux4.fst 3_x-ks.fst > 3_aux5.fst
+fstcompose 3_aux5.fst 3_z-s.fst > passo3.fst
+
+#Teste ao passo 3 completo para os apelidos REI e CARVALHO
+#NOTA: o LH de carvalho tendo em conta que o passo 3 corre dps do passo 2 deveria ser substituido por 2
+#		como este teste e independente o h simplesmente é apagado 
+fstcompose w-carvalho.fst passo3.fst > carvalho.fst
+fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait carvalho.fst | dot -Tpdf > carvalho.pdf
+
+fstcompose w-rei.fst passo3.fst > rei.fst
+fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait rei.fst | dot -Tpdf > rei.pdf
+
+
