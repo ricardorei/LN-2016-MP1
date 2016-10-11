@@ -67,7 +67,7 @@ fstcompose final1.fst passo3.fst > final2.fst
 fstcompose final2.fst passo4.fst > transdutorFinal.fst
 
 #Teste para os apelidos REI e CARVALHO!
-for i in rei carvalho; do
+for i in rei carvalho dziergwa; do
 	python word2fst.py $i > w-$i.txt
 	fstcompile --isymbols=syms.txt --osymbols=syms.txt w-$i.txt | fstarcsort > w-$i.fst
 	fstcompose w-$i.fst transdutorFinal.fst > $i.fst
