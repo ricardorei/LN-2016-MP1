@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in acho galho ganho carro massa; do
+for i in acho galho ganho carro massa carvalho rei; do
 	python word2fst.py $i > w-$i.txt
 	fstcompile --isymbols=syms.txt --osymbols=syms.txt w-$i.txt | fstarcsort > w-$i.fst
 done
@@ -36,3 +36,16 @@ fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait ca4o.fst | dot -Tpdf >
 #MASSA substituicao de SS por S
 fstcompose w-massa.fst 2_ss-s.fst > masa.fst
 fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait masa.fst | dot -Tpdf > masa.pdf
+
+#compose passo 2
+fstcompose 2_ch-x.fst 2_lh-2.fst > 2_aux1.fst
+fstcompose 2_aux1.fst 2_nh-3.fst > 2_aux2.fst
+fstcompose 2_aux2.fst 2_rr-4.fst > 2_aux3.fst
+fstcompose 2_aux3.fst 2_ss-s.fst > passo2.fst
+
+#Teste ao passo 2 completo para os apelidos REI e CARVALHO
+fstcompose w-carvalho.fst passo2.fst > carvalho.fst
+fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait carvalho.fst | dot -Tpdf > carvalho.pdf
+
+fstcompose w-rei.fst passo2.fst > rei.fst
+fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait rei.fst | dot -Tpdf > rei.pdf
