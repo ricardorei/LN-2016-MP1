@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in asa exame extra; do
+for i in asa exame extra carvalho rei; do
 	python word2fst.py $i > w-$i.txt
 	fstcompile --isymbols=syms.txt --osymbols=syms.txt w-$i.txt | fstarcsort > w-$i.fst
 done
@@ -25,3 +25,13 @@ fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait ezame.fst | dot -Tpdf 
 #EXTRA substituicao de X por S = ESTRA
 fstcompose w-extra.fst 1_x-s.fst > estra.fst
 fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait estra.fst | dot -Tpdf > estra.pdf
+
+#Teste ao passo 1 completo
+fstcompose 1_s-z.fst 1_x-s.fst > 1_aux1.fst
+fstcompose 1_aux1.fst 1_x-z.fst > passo1.fst 
+
+fstcompose w-carvalho.fst passo1.fst > carvalho.fst
+fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait carvalho.fst | dot -Tpdf > carvalho.pdf
+
+fstcompose w-rei.fst passo1.fst > rei.fst
+fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait rei.fst | dot -Tpdf > rei.pdf
