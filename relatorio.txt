@@ -8,3 +8,8 @@ Descrição das opções:
 
 - Desenhamos um transdutor para cada regra pois isto permitia-nos utilizar a ferramenta de composição simplificando assim a realização de cada passo. 
 
+Testes:
+
+- Para testar os transdutores referentes a cada passo criamos Scripts (um por passo chamados test.sh). Nesses Scripts testamos cada "mini-passo" com a plavra de exemplo do enunciado (ex: para o passo 1 testamos o "mini-passo" s-z se s entre vogais com a palavra exame). No final do script fazemos compose de todos os "mini-passos" de forma a gerar o respectivo passo completo que depois testamos com os nossos apelidos (rei, dziergwa e carvalho).
+
+- Para testar o resultado final temos um Script (chamado run.sh) que faz compose de todos os "mini-passos" no respectivo passo e depois faz compose de todos os passos num transdutor final. Esse transdutor é usado para testar com os nossos apelidos. Por fim eliminamos as transições "eps" de forma a vizualizar o output para os nossos nomes.
