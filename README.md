@@ -5,7 +5,7 @@
   O projecto consistia na realização de um algoritmo fonético (estilo soundex). Como tal foram definidos diferentes trandutores
 que implementam diferentes passos e que através de ferramentas de Composição vão originar o algoritmo final pretendido.
 
-##Software necessario:
+##Software necessário:
 - http://www.graphviz.org/
 - http://www.openfst.org/twiki/bin/view/FST/FstDownload
 
