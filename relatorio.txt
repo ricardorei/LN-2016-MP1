@@ -12,4 +12,7 @@ Testes:
 
 - Para testar os transdutores referentes a cada passo criamos scripts (um para cada passo, e denominados test.sh). Nesses scripts testamos cada regra com a respectiva palavra do exemplo do enunciado (ex: para o passo 1 testamos a regra "s->z se s entre vogais" com a palavra exame). No final do script fazemos compose dos transdutores de cada regra de forma a gerar o respectivo passo completo, e depois testamos cada passo completo com os nossos apelidos (rei, dziergwa e carvalho).
 
-- Para testar o resultado final temos um script (denominado run.sh) que faz compose dos transdutores de cada regra no respectivo passo e depois faz compose de todos os passos num transdutor final. Esse transdutor é testado com os nossos apelidos. Por fim eliminamos as transições "eps" de forma a visualizar o output para os nossos nomes.
+- Para testar o resultado final temos um script (denominado run.sh) que faz compose dos transdutores de cada regra no respectivo passo e depois faz compose de todos os passos num transdutor final. Esse transdutor é testado com vários nomes (nuno, luisa, rei, cziergwa, carvalho, mamede e coheur). Por fim eliminamos as transições "eps" de forma a visualizar o output para os nossos nomes.
+
+Github:
+- Dada a simplicidade do projecto realizamos grande parte em conjunto em "pair programming" mas dada a quantidade grande de ficheiros gerados decidimos criar um git com todo o projecto. O projecto pode ser consultado em: https://github.com/RicardoRei/LN-2016  
