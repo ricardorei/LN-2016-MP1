@@ -1,9 +1,13 @@
 #!/bin/bash
+#criacao dos fsts referentes as palavras rato, hoje, quando, paz, celofane, calar, gelo, xerox, 
+#	rei e carva2o
 for i in rato hoje quando paz celofane calar gelo xerox rei carva2o; do
 	python word2fst.py $i > w-$i.txt
 	fstcompile --isymbols=syms.txt --osymbols=syms.txt w-$i.txt | fstarcsort > w-$i.fst
 done
 
+###################################  passo 3 #################################################
+#passagem do passo 1 para forma fst
 python compact2fst.py 3_c-s.txt > ugly-3_c-s.txt
 python compact2fst.py 3_g-j.txt > ugly-3_g-j.txt
 python compact2fst.py 3_h-0.txt > ugly-3_h-0.txt
@@ -12,6 +16,7 @@ python compact2fst.py 3_r-4.txt > ugly-3_r-4.txt
 python compact2fst.py 3_x-ks.txt > ugly-3_x-ks.txt
 python compact2fst.py 3_z-s.txt > ugly-3_z-s.txt
 
+#compilacao dos mini passos para formato fst
 fstcompile --isymbols=syms.txt --osymbols=syms.txt ugly-3_c-s.txt | fstarcsort > 3_c-s.fst
 fstcompile --isymbols=syms.txt --osymbols=syms.txt ugly-3_g-j.txt | fstarcsort > 3_g-j.fst
 fstcompile --isymbols=syms.txt --osymbols=syms.txt ugly-3_h-0.txt | fstarcsort > 3_h-0.fst
@@ -51,8 +56,8 @@ fstcompose 3_aux3.fst 3_r-4.fst > 3_aux4.fst
 fstcompose 3_aux4.fst 3_x-ks.fst > 3_aux5.fst
 fstcompose 3_aux5.fst 3_z-s.fst > passo3.fst
 
-#Teste ao passo 3 completo para os apelidos REI e CARVALHO
-#NOTA: o LH de carvalho tendo em conta que o passo 3 corre dps do passo 2 deveria ser substituido por 2
+#Teste ao passo 3 completo para os apelidos rei e carva2o
+#NOTA: o LH de carvalho tendo em conta que o passo 3 corre dps do passo 2 ja vem substituido por 2
 for i in carva2o rei; do
 	fstcompose w-$i.fst passo3.fst > $i.fst
 	fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait $i.fst | dot -Tpdf > $i.pdf

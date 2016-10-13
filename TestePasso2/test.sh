@@ -1,15 +1,19 @@
 #!/bin/bash
+#criacao dos fsts referentes as palavras acho, galho, ganho, carro, massa, carvalho e rei
 for i in acho galho ganho carro massa carvalho rei; do
 	python word2fst.py $i > w-$i.txt
 	fstcompile --isymbols=syms.txt --osymbols=syms.txt w-$i.txt | fstarcsort > w-$i.fst
 done
-# Passo 2 #
+
+###################################  passo 2 #################################################
+#passagem do passo 1 para forma fst
 python compact2fst.py 2_ch-x.txt > ugly-2_ch-x.txt
 python compact2fst.py 2_lh-2.txt > ugly-2_lh-2.txt
 python compact2fst.py 2_nh-3.txt > ugly-2_nh-3.txt
 python compact2fst.py 2_rr-4.txt > ugly-2_rr-4.txt
 python compact2fst.py 2_ss-s.txt > ugly-2_ss-s.txt
 
+#compilacao dos mini passos para formato fst
 fstcompile --isymbols=syms.txt --osymbols=syms.txt ugly-2_ch-x.txt | fstarcsort > 2_ch-x.fst
 fstcompile --isymbols=syms.txt --osymbols=syms.txt ugly-2_lh-2.txt | fstarcsort > 2_lh-2.fst
 fstcompile --isymbols=syms.txt --osymbols=syms.txt ugly-2_nh-3.txt | fstarcsort > 2_nh-3.fst
@@ -39,7 +43,7 @@ fstcompose 2_aux1.fst 2_nh-3.fst > 2_aux2.fst
 fstcompose 2_aux2.fst 2_rr-4.fst > 2_aux3.fst
 fstcompose 2_aux3.fst 2_ss-s.fst > passo2.fst
 
-#Teste ao passo 2 completo para os apelidos REI e CARVALHO
+#Teste ao passo 2 completo para os apelidos rei e carvalho
 for i in carvalho rei; do
 	fstcompose w-$i.fst passo2.fst > $i.fst
 	fstdraw --isymbols=syms.txt --osymbols=syms.txt -portrait $i.fst | dot -Tpdf > $i.pdf
