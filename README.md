@@ -1,15 +1,15 @@
 # LN-2016
 1ª Parte Projecto de Lingua Natural - Professora Luisa Coheur
 
-##Descrição:
+## Descrição:
   O projecto consistia na realização de um algoritmo fonético (estilo soundex). Como tal foram definidos diferentes trandutores
 que implementam diferentes passos e que através de ferramentas de Composição vão originar o algoritmo final pretendido.
 
-##Software necessário:
+## Software necessário:
 - http://www.graphviz.org/
 - http://www.openfst.org/twiki/bin/view/FST/FstDownload
 
-##Algoritmo:
+## Algoritmo:
   1º passo:
   S → Z se entre vogais (ex: asa → aza);
   X → Z se precedido de "E" (que está no início de palavra) e seguido de uma vogal (ex: exame → ezame);
@@ -35,4 +35,6 @@ que implementam diferentes passos e que através de ferramentas de Composição 
   
   4º passo:
   Elimina todas as vogais que não se encontram no início da palavra (ex: aleluia→ all).
+  
+
 
