@@ -1,5 +1,5 @@
 # LN-2016
-1ª Parte Projecto de Lingua Natural - Professora Luisa Coheur
+1ª Parte Projecto de Lingua Natural (enunciado no ficheiro MP1.pdf) - Professora Luisa Coheur
 
 ## Descrição:
   O projecto consistia na realização de um algoritmo fonético (estilo soundex). Como tal foram definidos diferentes trandutores
