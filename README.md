@@ -10,7 +10,7 @@ que implementam diferentes passos e que através de ferramentas de Composição 
 - http://www.openfst.org/twiki/bin/view/FST/FstDownload
 
 ## Algoritmo:
-  1º passo:
+  #### 1º passo:
   
   S → Z se entre vogais (ex: asa → aza);
   
@@ -18,7 +18,7 @@ que implementam diferentes passos e que através de ferramentas de Composição 
   
   X → S se precedido de "E" (que está no início de palavra) e seguido de uma consoante (ex: extra → estra);
 
-  2º passo:
+  #### 2º passo:
   
   CH → X (ex: acho → axo);
   
@@ -30,7 +30,7 @@ que implementam diferentes passos e que através de ferramentas de Composição 
   
   SS → S (ex: massa → masa);
 
-  3º passo:
+  #### 3º passo:
   
   R → 4 se no início da palavra (ex: rato → 4ato);
   
@@ -48,7 +48,7 @@ que implementam diferentes passos e que através de ferramentas de Composição 
   
   X → KS se no fim da palavra (ex: xerox → xeroks);
   
-  4º passo:
+  #### 4º passo:
   
   Elimina todas as vogais que não se encontram no início da palavra (ex: aleluia→ all).
   
